@@ -9,14 +9,13 @@ function App() {
       <div
         style={{
           textAlign: "center",
-          height: "100vh",
           color: "white",
         }}
       >
         <div
           style={{
             flex: 1,
-            fontSize: "40vh",
+            fontSize: "35vh",
           }}
           onClick={() => {
             setPlay(0);
@@ -27,7 +26,7 @@ function App() {
         <div
           style={{
             flex: 1,
-            fontSize: "40vh",
+            fontSize: "35vh",
           }}
           onClick={() => {
             setPlayer("");
