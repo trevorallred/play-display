@@ -1,21 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import DisplayPlay from "./src/DisplayPlay";
+import PickPlay from "./src/PickPlay";
+import PickPlayer from "./src/PickPlayer";
 
-export default function App() {
+function App() {
+  const [play, setPlay] = useState(12);
+  const [player, setPlayer] = useState("B");
+
+  if (play < 1) return <PickPlay setPlay={setPlay} />;
+  if (player === "") return <PickPlayer setPlayer={setPlayer} />;
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <DisplayPlay
+      play={play}
+      player={player}
+      reset={() => {
+        setPlay(0);
+        setPlayer("");
+      }}
+    />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
